@@ -69,23 +69,26 @@ public class TicTacToe {
 			System.out.println("Player One - select X or O?");
 			answer1 = reader.next().charAt(0);
 			
-			check = checkAnswer(answer1);
-			if(check) {
-				if(answer1 == 'X' || answer1 =='x') {
-					answer1 = 'X';
-					answer2 = 'O';
+			if(answer1 == 'X' || answer1 =='x') {
+				answer1 = 'X';
+				answer2 = 'O';
 					
-					p1.setLetter(answer1);
-					p2.setLetter(answer2);
-				}
-				else if(answer1 == 'O' || answer1 =='o') {
-					answer1 = 'O';
-					answer2 = 'X';
-					
-					p1.setLetter(answer1);
-					p2.setLetter(answer2);
-				}
+				p1.setLetter(answer1);
+				p2.setLetter(answer2);
+				check = true;
 			}
+			else if(answer1 == 'O' || answer1 =='o') {
+				answer1 = 'O';
+				answer2 = 'X';
+					
+				p1.setLetter(answer1);
+				p2.setLetter(answer2);
+				check = true;
+			}
+			else {
+				System.out.println("Invalid selection. Please try again.");
+			}
+			
 		}
 	}
 	
@@ -114,23 +117,6 @@ public class TicTacToe {
 		
 		
 		return result;
-	}
-	
-	//checkAnswer ensures the player input is an X or an O
-	public static boolean checkAnswer(char l) {
-		boolean check = false;
-		char[] possible = {'X', 'x', 'O','o'};
-		
-		for (int i = 0; i < possible.length; i++) {
-			if(l == possible[i]) {
-				check = true;
-			}
-		}
-		
-		if(!check) {
-			System.out.println("Invalid selection. Please try again.");
-		}
-		return check;
 	}
 	
 	//startBoard initializes the board at the start of a game
