@@ -49,6 +49,7 @@ public class TicTacToe {
 		return player;
 	}
 	
+	//startGame function initiates the start of the game
 	public static void startGame(TicTacToe p1, TicTacToe p2, Scanner reader) {
 		playerSetup(p1, p2, reader);
 		
@@ -59,6 +60,7 @@ public class TicTacToe {
 		displayBoard(board);
 	}
 	
+	//playerSetup function asks the first player to choose 'X' or 'O' and selects opposite for second player
 	public static void playerSetup(TicTacToe p1, TicTacToe p2, Scanner reader) {
 		char answer1;
 		char answer2;
@@ -92,6 +94,7 @@ public class TicTacToe {
 		}
 	}
 	
+	//getResult function returns true if there is a win or tie, false if neither.
 	public static boolean getResult(TicTacToe p1, TicTacToe p2, int turn) {
 		boolean result = false;
 		
@@ -128,6 +131,7 @@ public class TicTacToe {
 		}
 	}
 	
+	//displayBoard prints the board after every turn
 	public static void displayBoard(char[][] b) {
 		System.out.println("  0 1 2");
 		for(int i = 0; i < 3; i++) {
@@ -140,6 +144,7 @@ public class TicTacToe {
 		}
 	}
 	
+	//playerTurn function inputs the player's action to the board and displays the board
 	public static void playerTurn(TicTacToe p1, TicTacToe p2, int turn, Scanner reader) {
 		TicTacToe currentPlayer = checkTurn(p1, p2, turn);
 		int row;
@@ -161,7 +166,7 @@ public class TicTacToe {
 		displayBoard(board);
 	}
 	
-	//checkLetter function ensures that the input row and column are valid
+	//checkLetter function ensures that the input row and column are valid at each turn
 	public static boolean checkLetter(int r, int c) {
 		boolean check = false;
 		
@@ -182,6 +187,7 @@ public class TicTacToe {
 		return check;
 	}
 	
+	//checkTurn function ditactes each player's turn in the match and returns current player to playerTurn at each turn
 	public static TicTacToe checkTurn(TicTacToe p1, TicTacToe p2, int turn) {
 		TicTacToe current;
 		
@@ -195,6 +201,7 @@ public class TicTacToe {
 		return current;
 	}
 	
+	//checkWin function checks the board for a win and return the results to getResults function at each turn
 	public static char checkWin() {
 		int r = 0;
 		int c = 0;
@@ -235,6 +242,7 @@ public class TicTacToe {
 		return win;
 	}
 	
+	//getWinner function returns the player who picked the winning letter to getResults function
 	public static String getWinner(TicTacToe p1, TicTacToe p2, char l) {
 		String winner;
 		if(p1.getLetter() == l) {
